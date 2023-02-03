@@ -18,40 +18,40 @@
                 <div id="erreur" class="alert alert-danger mt-3">
                     erreurs
                 </div>
-                <form class="card-body" id="edit-car-form" method="post" action="/contact/edit/id">
+                <form class="card-body" id="edit-car-form" method="post" action="<% `/contact/edit/${ data.contact.id }` %>">
                     <div class="mb-3">
                         <label for="lastName" class="form-label">Nom</label>
-                        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Nom">
+                        <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Nom" value="<%= data.contact.lastName %>">
                     </div>
 
                     <div class="mb-3">
                         <label for="firstName" class="form-label">Prénom</label>
-                        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Prénom">
+                        <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Prénom" value="<%= data.contact.firstName %>">
                     </div>
 
                     <div class="mb-3">
                         <label for="company" class="form-label">Société</label>
-                        <input type="text" class="form-control" name="company" id="company" placeholder="Société">
+                        <input type="text" class="form-control" name="company" id="company" placeholder="Société" value="<%= data.contact.company %>">
                     </div>
                     
                     <div class="mb-3">
                         <label for="address" class="form-label">Adresse</label>
-                        <input type="text" class="form-control" name="address" id="address" placeholder="Adresse">
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Adresse" value="<%= data.contact.address %>">
                     </div>
                                         
                     <div class="mb-3">
                         <label for="phone" class="form-label">Tel</label>
-                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Tel">
+                        <input type="text" class="form-control" name="phone" id="phone" placeholder="Tel" value="<%= data.contact.phone %>">
                     </div>
 
                     <div class="mb-3">
                         <label for="email" class="form-label">E-Mail</label>
-                        <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail">
+                        <input type="text" class="form-control" name="email" id="email" placeholder="E-Mail" value="<%= data.contact.email %>">
                     </div>
 
                     <div class="mb-3">
                         <label for="sector" class="form-label">Secteur</label>
-                        <select  name="sector" id="sector" class="form-select">
+                        <select  name="sector" id="sector" class="form-select"  value="<%= data.contact.selector %>">
                             <option value="industrie">Industrie</option>
                             <option value="informatique">Informatique</option>
                             <option value="sante">Santé</option>

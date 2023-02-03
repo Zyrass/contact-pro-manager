@@ -12,7 +12,6 @@ router
   .route("/contact/edit/:id")
   .get(myController.getUpdate)
   .post(myController.postUpdate)
-  .put(myController.putUpdate);
 
 router.route("/contact/delete/:id").get(myController.getDelete);
 

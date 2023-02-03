@@ -1,3 +1,4 @@
+const { findByIdAndUpdate } = require("../models/ContactModel");
 const ContactModel = require("../models/ContactModel");
 
 const getCreate = (req, res) => {
@@ -23,19 +24,34 @@ const getRead = (req, res) => {
 };
 
 const getUpdate = (req, res) => {
-  res.status(200).render("edit-item");
+  ContactModel.findById(req.params.id)
+    .then((document) => {
+      console.log(document);
+      res.status(200).render("edit-item", {
+        data: {
+          contact: document,
+        },
+      });
+    })
+    .catch((err) => console.log(err.stack));
 };
 
 const postUpdate = (req, res) => {
-  res.status(200).render("edit-item");
-};
-
-const putUpdate = (req, res) => {
-  res.redirect("/");
+  ContactModel.findByIdAndUpdate(
+    req.params.id,
+    { $set: req.body },
+    { new: true }
+  )
+    .exec()
+    .then((document) => {
+      console.log(document);
+      res.redirect("/");
+    })
+    .catch((err) => console.log(err.stack));
 };
 
 const getDelete = (req, res) => {
-  ContactModel.findById(req.params.id)
+  ContactModel.findOneAndDelete(req.params.id)
     .then(() => {
       res.redirect("/");
     })
@@ -49,5 +65,4 @@ module.exports = {
   getDelete,
   postCreate,
   postUpdate,
-  putUpdate,
 };
