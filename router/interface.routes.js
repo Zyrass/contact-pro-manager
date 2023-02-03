@@ -1,31 +1,19 @@
 const router = require("express").Router();
+const myController = require("../app/controllers/InterfaceController");
 
-router.route("/").get((req, res) => {
-  res.status(200).render("home");
-});
+router.route("/").get(myController.getRead);
 
 router
   .route("/contact/new")
-  .get((req, res) => {
-    res.status(200).render("add-item");
-  })
-  .post((req, res) => {
-    res.redirect("/");
-  });
+  .get(myController.getCreate)
+  .post(myController.postCreate);
 
 router
   .route("/contact/edit/:id")
-  .get((req, res) => {
-    res.status(200).render("edit-item");
-  })
-  .post((req, res) => {
-    res.status(200).render("edit-item");
-  })
-  .put((req, res) => {
-    res.redirect("/");
-  });
+  .get(myController.getUpdate)
+  .post(myController.postUpdate)
+  .put(myController.putUpdate);
 
-router.route("/contact/delete/:id").get((req, res) => {
-  res.redirect("/");
-});
+router.route("/contact/delete/:id").get(myController.getDelete);
+
 module.exports = router;
