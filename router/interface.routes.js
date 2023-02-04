@@ -17,4 +17,6 @@ router.route("/contact/delete/:id").get(myController.getDelete);
 
 router.route("/contact/show/:id").get(myController.getOneContact);
 
+router.route(["/contact", "/contact/show", "/contact/edit", "/contact/delete"]).get(myController.getRedirect);
+
 module.exports = router;

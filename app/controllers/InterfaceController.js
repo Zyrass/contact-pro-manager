@@ -98,6 +98,10 @@ const getOneContact = (req, res) => {
     .catch((err) => console.log(err.stack));
 };
 
+const getRedirect = (req, res) => {
+  res.redirect("/");
+};
+
 module.exports = {
   getCreate,
   getRead,
@@ -106,4 +110,5 @@ module.exports = {
   postCreate,
   postUpdate,
   getOneContact,
+  getRedirect,
 };

@@ -22,7 +22,7 @@ exports.checkValidate = (request) => {
     i++;
   }
   if (form.data.company == "") {
-    form.errorMessage[i] = 'Le champ "companie" ne peut-être vide';
+    form.errorMessage[i] = 'Le champ "société" ne peut-être vide';
     i++;
   }
   if (form.data.address == "") {
