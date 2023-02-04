@@ -15,9 +15,20 @@
                 <h3>AJOUT D'UN CONTACT</h3>
             </div>
             <div class="card-content mt-3">
+
+                <%# ERRORS %>
+                <% if ( errors.length > 0 ) { %>
                 <div id="erreur" class="alert alert-danger mt-3">
-                    erreurs
+                    <h3><%= errors.length %> erreur(s) trouvé(s)</h3>
+                    <ul>
+                        <% errors.forEach(error => { %>
+                            <li><%= error %></li>
+                        <% }) %>
+                    </ul>
                 </div>   
+                <% } %>
+
+                <%# FORMULAIRE %>
                 <form class="card-body" id="new-contact-form" method="post" action="/contact/new">
                     <div class="mb-3">
                         <label for="lastName" class="form-label">Nom</label>
