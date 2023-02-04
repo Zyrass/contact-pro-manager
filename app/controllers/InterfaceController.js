@@ -8,19 +8,17 @@ const getCreate = (req, res) => {
 };
 
 const postCreate = (req, res) => {
-  ContactModel.findById(req.params.id).then(() => {
-    const form = checkValidate(req.body);
-    if (form.length > 0) {
-      console.log("Il y a des erreurs");
-      res.status(400).render("add-item", {
-        errors: form,
-      });
-    } else {
-      // console.log(form);
-      const newContact = new ContactModel(req.body);
-      newContact.save().then(() => res.redirect("/"));
-    }
-  });
+  const form = checkValidate(req.body);
+  if (form.length > 0) {
+    // console.log("Il y a des erreurs");
+    res.status(400).render("add-item", {
+      errors: form,
+    });
+  } else {
+    // console.log(form);
+    const newContact = new ContactModel(req.body);
+    newContact.save().then(() => res.redirect("/"));
+  }
 };
 
 const getRead = (req, res) => {
@@ -55,7 +53,7 @@ const postUpdate = (req, res) => {
     // console.log(form);
 
     if (form.length > 0) {
-      console.log("Il y a des erreurs");
+      // console.log("Il y a des erreurs");
       res.status(400).render("edit-item", {
         errors: form,
         data: {
@@ -70,7 +68,7 @@ const postUpdate = (req, res) => {
       )
         .exec()
         .then((document) => {
-          // console.log(document);
+          console.log(document);
           res.redirect("/");
         })
         .catch((err) => console.log(err.stack));
