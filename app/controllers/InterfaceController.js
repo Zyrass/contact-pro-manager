@@ -86,6 +86,18 @@ const getDelete = (req, res) => {
     .catch((err) => console.log(err.stack));
 };
 
+const getOneContact = (req, res) => {
+  ContactModel.findById(req.params.id)
+    .then((document) => {
+      res.status(200).render("show-item", {
+        data: {
+          contact: document,
+        },
+      });
+    })
+    .catch((err) => console.log(err.stack));
+};
+
 module.exports = {
   getCreate,
   getRead,
@@ -93,4 +105,5 @@ module.exports = {
   getDelete,
   postCreate,
   postUpdate,
+  getOneContact,
 };

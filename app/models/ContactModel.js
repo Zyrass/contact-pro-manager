@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const COLLECTION_NAME = process.env.MONGODB_COLLECTION_NAME;
+
 const ContactSchema = mongoose.Schema(
   {
     firstName: {
@@ -39,4 +41,4 @@ const ContactSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("contacts", ContactSchema);
+module.exports = mongoose.model(COLLECTION_NAME, ContactSchema);
