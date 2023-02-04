@@ -9,7 +9,7 @@ mongoose.set("strictQuery", true);
 
 mongoose
   .connect(
-    `mongodb+srv://${PSEUDO}:${PASSWORD}@${CLIENT_NAME}.d51otgm.mongodb.net/${DATABASE_NAME}`,
+    `mongodb+srv://${PSEUDO}:${PASSWORD}@${CLIENT_NAME}.mongodb.net/${DATABASE_NAME}`,
     {
       useUnifiedTopology: true,
       useNewUrlParser: true,
