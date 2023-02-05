@@ -2,6 +2,12 @@
 
 Conception d'une API **CRUD** ainsi que d'une interface totalement indépendande de cette API.
 
+##  📍 Tester l'API
+
+Vous pourrez tester l'API en important le fichier **API TP Contact Pro Manager.postman_collection.json** dans **postman**.
+La seule chose à faire sera d'adapter les routes en fonction d'un ID existant pour celà,
+copié **un identifiant (ID)** obtenu dans via la requête **pour afficher tous les contacts**.
+
 ##  📍 Comment l'utiliser
 
 ● Cloner le repository
@@ -32,7 +38,7 @@ npm i
 
 _L'option **--save** est obsolète de nos jour dans le sens où elle a été inclus dans les version récente de npm_.
 
-● Renommer le .env.example
+● Renommer le .env.example en .env
 
 La connexion sera déjà pré-configuré.
 Mais au cas où la configuration se base sur le contenu ci-dessous
