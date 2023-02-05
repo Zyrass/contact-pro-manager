@@ -8,7 +8,7 @@ Vous pourrez tester l'API en important le fichier **API TP Contact Pro Manager.p
 La seule chose à faire sera d'adapter les routes en fonction d'un ID existant pour celà,
 copié **un identifiant (ID)** obtenu dans via la requête **pour afficher tous les contacts**.
 
-##  📍 Comment l'utiliser
+##  📍 Comment utiliser le projet via une interface graphique
 
 ● Cloner le repository
 
