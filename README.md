@@ -34,8 +34,8 @@ _L'option **--save** est obsolète de nos jour dans le sens où elle a été inc
 
 ● Renommer le .env.example
 
-Effectivement il faudra renommer le fichier **.env.example** qui permettra de faire fonctionner l'application.
-J'ai tout de même quelques recommandations à donner.
+La connexion sera déjà pré-configuré.
+Mais au cas où la configuration se base sur le contenu ci-dessous
 
 ```js
 // Dans la DB vous obtiendrez ceci
@@ -44,7 +44,7 @@ const PASSWORD = process.env.MONGODB_PASSWORD;
 const CLIENT_NAME = process.env.MONGODB_CLIENT_NAME;
 const DATABASE_NAME = process.env.MONGODB_DATABASE_NAME;
 
-// URL utilisé
+// URI utilisé
 `mongodb+srv://${PSEUDO}:${PASSWORD}@${CLIENT_NAME}.mongodb.net/${DATABASE_NAME}`
 
 HOSTNAME= // localhost
@@ -52,12 +52,12 @@ PORT= // 8080 par exemple
 MONGODB_PSEUDO= // votre pseudo sur mongoDB
 MONGODB_PASSWORD= // votre mot de passe personnel
 
-// Ci-dessous, c'est important de bien respecter la syntaxe (nom.)
+// Ci-dessous, c'est important de bien respecter la syntaxe (nom.quelque_chose)
 MONGODB_CLIENT_NAME= // le_nom_après_le_arobase.quelque_chose_d'aléatoire
 MONGODB_DATABASE_NAME= // titre de la database séparer par des underscore ( _ )
 
 // Ci-dessous, cette variable est utilisé dans le modèle pour définir la collection qui sera utilsié.
-MONGODB_COLLECTION_NAME= // nom de la collection IMPERATIVEMENT EN MAJUSCULE ET AVEC UN S A LA FIN (il sera ajouté par défaut avec mongodb donc autant le mettre).
+MONGODB_COLLECTION_NAME= // nom de la collection IMPERATIVEMENT EN MINUSCULE ET AVEC UN S A LA FIN (il sera ajouté par défaut avec mongodb donc autant le mettre).
 ```
 
 ● On devrait pouvoir lancer le server si tout à bien été respecter
