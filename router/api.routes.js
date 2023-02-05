@@ -1,21 +1,53 @@
+/**
+ * =======================================================================
+ * Dépendances ou module
+ * =======================================================================
+ */
 const router = require("express").Router();
+
+/**
+ * =======================================================================
+ * Import du fichier ApiController
+ * =======================================================================
+ */
 const myApi = require("../app/controllers/ApiController");
 
-router.route("/").get(myApi.getReadJSON);
+/**
+ * =======================================================================
+ * Routing utilisant uniquement le protocole GET
+ * =======================================================================
+ */
+router.get(
+  ["/contact", "/contact/show", "/contact/edit", "/contact/delete"],
+  myApi.getRedirect
+);
+router.get("/", myApi.getReadJSON);
+router.get("/contact/show/:id", myApi.getReadOneJSON);
 
-router
-  .route("/contact/new")
-  //.get(myApi.getCreate)
-  .post(myApi.postCreateJSON);
+/**
+ * =======================================================================
+ * Routing utilisant uniquement le protocole PUT
+ * =======================================================================
+ */
+router.put("/contact/edit/:id", myApi.putUpdateJSON);
 
-router.route("/contact/edit/:id").put(myApi.putUpdateJSON);
+/**
+ * =======================================================================
+ * Routing utilisant uniquement le protocole DELETE
+ * =======================================================================
+ */
+router.delete("/contact/delete/:id", myApi.deleteJSON);
 
-router.route("/contact/delete/:id").delete(myApi.deleteJSON);
+/**
+ * =======================================================================
+ * Routing utilisant uniquement le protocole POST
+ * =======================================================================
+ */
+router.post("/contact/new", myApi.postCreateJSON);
 
-router.route("/contact/show/:id").get(myApi.getOneContactJSON);
-
-router
-  .route(["/contact", "/contact/show", "/contact/edit", "/contact/delete"])
-  .get(myApi.getRedirect);
-
+/**
+ * =======================================================================
+ * Exportation du router pour le réutiller dans le fichier app.js
+ * =======================================================================
+ */
 module.exports = router;

@@ -1,8 +1,35 @@
+/**
+ * =======================================================================
+ * Dépendances ou module
+ * =======================================================================
+ */
 const router = require("express").Router();
+
+/**
+ * =======================================================================
+ * Import du fichier InterfaceController
+ * =======================================================================
+ */
 const myController = require("../app/controllers/InterfaceController");
 
-router.route("/").get(myController.getRead);
+/**
+ * =======================================================================
+ * Routing utilisant uniquement le protocole GET
+ * =======================================================================
+ */
+router.get(
+  ["/contact", "/contact/show", "/contact/edit", "/contact/delete"],
+  myController.getRedirect
+);
+router.get("/", myController.getRead);
+router.get("/contact/show/:id", myController.getReadOne);
+router.get("/contact/delete/:id", myController.getDelete);
 
+/**
+ * =======================================================================
+ * Routing utilisant plusieurs protocole différents
+ * =======================================================================
+ */
 router
   .route("/contact/new")
   .get(myController.getCreate)
@@ -13,10 +40,9 @@ router
   .get(myController.getUpdate)
   .post(myController.postUpdate);
 
-router.route("/contact/delete/:id").get(myController.getDelete);
-
-router.route("/contact/show/:id").get(myController.getOneContact);
-
-router.route(["/contact", "/contact/show", "/contact/edit", "/contact/delete"]).get(myController.getRedirect);
-
+/**
+ * =======================================================================
+ * Exportation du router pour le réutiller dans le fichier app.js
+ * =======================================================================
+ */
 module.exports = router;

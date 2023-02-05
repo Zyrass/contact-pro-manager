@@ -1,7 +1,57 @@
+/**
+ * =======================================================================
+ * Import du Modèle ContactModel (Schema)
+ * =======================================================================
+ */
 const ContactModel = require("../models/ContactModel");
+
+/**
+ * =======================================================================
+ * Import du Service (function) pour vérifier l'intégrité du formulaire
+ * =======================================================================
+ */
 const { checkValidate } = require("../../services/FormValidate");
 
-// OK
+/**
+ * =======================================================================
+ * Redirection si l'url ne correspon pas
+ * =======================================================================
+ */
+const getRedirect = (req, res) => {
+  res.redirect("/");
+};
+
+/**
+ * =======================================================================
+ * Affichage de tous les contacts avec le protocole GET
+ * =======================================================================
+ */
+const getReadJSON = (req, res) => {
+  ContactModel.find()
+    .then((documents) => {
+      res.status(200).json(documents);
+    })
+    .catch((err) => console.log(err.stack));
+};
+
+/**
+ * =======================================================================
+ * Affichage d'un seul contact via son ID en GET
+ * =======================================================================
+ */
+const getReadOneJSON = (req, res) => {
+  ContactModel.findById(req.params.id)
+    .then((document) => {
+      res.status(200).json(document);
+    })
+    .catch((err) => console.log(err.stack));
+};
+
+/**
+ * =======================================================================
+ * Création d'un contact avec le protocole POST
+ * =======================================================================
+ */
 const postCreateJSON = (req, res) => {
   const form = checkValidate(req.body);
   if (form.length > 0) {
@@ -15,16 +65,11 @@ const postCreateJSON = (req, res) => {
   }
 };
 
-// OK
-const getReadJSON = (req, res) => {
-  ContactModel.find()
-    .then((documents) => {
-      res.status(200).json(documents);
-    })
-    .catch((err) => console.log(err.stack));
-};
-
-// OK
+/**
+ * =======================================================================
+ * Mise à jour d'un contact via son ID avec le protocole PUT
+ * =======================================================================
+ */
 const putUpdateJSON = (req, res) => {
   ContactModel.findById(req.params.id).then((document) => {
     const form = checkValidate(req.body);
@@ -50,7 +95,11 @@ const putUpdateJSON = (req, res) => {
   });
 };
 
-// OK
+/**
+ * =======================================================================
+ * Suppression d'un contact via son ID avec le protocole DELETE
+ * =======================================================================
+ */
 const deleteJSON = (req, res) => {
   ContactModel.findByIdAndRemove(req.params.id)
     .then((document) => {
@@ -60,25 +109,34 @@ const deleteJSON = (req, res) => {
     .catch((err) => console.log(err.stack));
 };
 
-// OK
-const getOneContactJSON = (req, res) => {
-  ContactModel.findById(req.params.id)
-    .then((document) => {
-      res.status(200).json(document);
-    })
-    .catch((err) => console.log(err.stack));
-};
-
-// OK
-const getRedirect = (req, res) => {
-  res.redirect("/");
-};
-
+/**
+ * =======================================================================
+ * Export d'un objet pour chaque controller vers le fichier:
+ * api.routes.js
+ * -----------------------------------------------------------------------
+ * Au cas où, l'exemple en commentaire est strictement identique et donc
+ * via ES6, si un KEY comporte le même nom qu'une VALUE alors il est
+ * possible de la cominer soit
+ *
+ *  module.exports = {
+ *   getRead: getRead
+ *   getRead,
+ * };
+ *
+ * Même si ce code provoque une erreur vue que la KEY getRead existe déjà,
+ * tu as ici une bien meilleur compréhension de ce qu'il se passe.
+ * =======================================================================
+ */
 module.exports = {
-  postCreateJSON,
-  getReadJSON,
-  putUpdateJSON,
-  deleteJSON,
-  getOneContactJSON,
+  // redirection si route invalide
   getRedirect,
+  // cRud
+  getReadJSON,
+  getReadOneJSON,
+  // Crud
+  postCreateJSON,
+  // crUd
+  putUpdateJSON,
+  // cruD
+  deleteJSON,
 };
