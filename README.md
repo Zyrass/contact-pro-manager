@@ -2,16 +2,16 @@
 
 Conception d'une API **CRUD** ainsi que d'une interface totalement indépendande de cette API.
 
-## Comment l'utiliser
+##  📍 Comment l'utiliser
 
-1. Cloner le repository
+● Cloner le repository
 
 ```sh
 # Lancer cette commande
 git clone COLLER_ICI_L\'URL_QUE_VOUS_AVEZ_COPIER_SUR_MON_REPOSITORY
 ```
 
-2. Déplacer vous dans le répertoire fraîchement créer
+● Déplacer vous dans le répertoire fraîchement créer
 
 ```sh
 # Pour se déplacer dans le terminal
@@ -20,7 +20,7 @@ cd contact-pro-manager
 
 _contact-pro-manager_ étant le nom du répertoire qui aura été créer.
 
-3. Lancer l'installation des paquets
+● Lancer l'installation des paquets
 
 ```sh
 # version longue
@@ -32,7 +32,7 @@ npm i
 
 _L'option **--save** est obsolète de nos jour dans le sens où elle a été inclus dans les version récente de npm_.
 
-4. Renommer le .env.example
+● Renommer le .env.example
 
 Effectivement il faudra renommer le fichier **.env.example** qui permettra de faire fonctionner l'application.
 J'ai tout de même quelques recommandations à donner.
@@ -55,17 +55,19 @@ MONGODB_PASSWORD= // votre mot de passe personnel
 // Ci-dessous, c'est important de bien respecter la syntaxe (nom.)
 MONGODB_CLIENT_NAME= // le_nom_après_le_arobase.quelque_chose_d'aléatoire
 MONGODB_DATABASE_NAME= // titre de la database séparer par des underscore ( _ )
+
+// Ci-dessous, cette variable est utilisé dans le modèle pour définir la collection qui sera utilsié.
 MONGODB_COLLECTION_NAME= // nom de la collection IMPERATIVEMENT EN MAJUSCULE ET AVEC UN S A LA FIN (il sera ajouté par défaut avec mongodb donc autant le mettre).
 ```
 
-5. On devrait pouvoir lancer le server si tout à bien été respecter
+● On devrait pouvoir lancer le server si tout à bien été respecter
 
 ```sh
 # Pour lancer le server
 npm start
 ```
 
-## Info utile (Bonus)
+## 📍 Info utile (Bonus)
 
 Pourquoi ne pas faire un **`npm update`** ?
 
@@ -74,10 +76,15 @@ Pourquoi ne pas faire un **`npm update`** ?
 
 prenom un exemple avec **Boxen**.
 
-Actuellement ils en sont à la v7... Cette V7 utilise les modules et non **commonsJS**.
-Les modules c'est avec **import boxen from boxen**, commonJS c'est avec **const boxen = require("boxen")**.
+```js
+// Boxen avec CommonJS
+const boxen = require("boxen"); // V5.1.2 Dernière version
 
-Pour utiliser une version avec commonJS, il faut installer la dernière version qui implémentait l'utilisation avec commonJS soit:
+// Boxen avec les modules pris en charge
+import boxen from boxen; // V7 actuellement
+```
+
+**Pour utiliser une version avec commonJS, il faut installer la dernière version qui prenait en compte commonJS soit:**
 
 ```sh
 # obtenir la version avec commonJS
@@ -87,4 +94,4 @@ npm i boxen@5.1.2
 npm i boxen
 ```
 
-**Donc l'update comme je l'ai dis peut-être vachement dangereux si il n'est pas maitrisé**.
+**_Donc l'update comme je l'ai dis peut-être vachement dangereux si il n'est pas maitrisé_**.
