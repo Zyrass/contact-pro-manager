@@ -6,6 +6,7 @@ const express = require("express");
 const path = require("path");
 
 const routerInterface = require("./router/interface.routes");
+const routerApi = require("./router/api.routes");
 
 const PORT = process.env.PORT || 3000;
 
@@ -21,6 +22,7 @@ app.use(
 );
 
 app.use("/", routerInterface);
+app.use("/api", routerApi);
 
 app.listen(PORT, () =>
   console.log(`connecté à cette adresse: http://localhost:${PORT}`)
