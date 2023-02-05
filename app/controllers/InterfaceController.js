@@ -158,7 +158,7 @@ const getDelete = (req, res) => {
  * -----------------------------------------------------------------------
  * Au cas où, l'exemple en commentaire est strictement identique et donc
  * via ES6, si un KEY comporte le même nom qu'une VALUE alors il est
- * possible de la cominer soit
+ * possible de la combiner soit
  *
  *  module.exports = {
  *   getRead: getRead
