@@ -1,12 +1,12 @@
 # TP Contact Pro Manager
 
-Conception d'une API **CRUD** ainsi que d'une interface totalement indépendande de cette API.
+Conception d'une API **CRUD** ainsi que d'une interface totalement indépendante de cette API.
 
 ##  📍 Tester l'API
 
 Vous pourrez tester l'API en important le fichier **API TP Contact Pro Manager.postman_collection.json** dans **postman**.
-La seule chose à faire sera d'adapter les routes en fonction d'un ID existant pour celà,
-copié **un identifiant (ID)** obtenu dans via la requête **pour afficher tous les contacts**.
+La seule chose à faire sera d'adapter les routes en fonction d'un ID existant pour cela,
+copier **un identifiant (ID)** obtenu dans via la requête **pour afficher tous les contacts**.
 
 ##  📍 Comment utiliser le projet via une interface graphique
 
@@ -14,7 +14,7 @@ copié **un identifiant (ID)** obtenu dans via la requête **pour afficher tous 
 
 ```sh
 # Lancer cette commande
-git clone COLLER_ICI_L\'URL_QUE_VOUS_AVEZ_COPIER_SUR_MON_REPOSITORY
+git clone COLLER_ICI_L\'URL_QUE_VOUS_AVEZ_RÉCUPÉRER_SUR_MON_REPOSITORY
 ```
 
 ● Déplacer vous dans le répertoire fraîchement créer
@@ -24,7 +24,7 @@ git clone COLLER_ICI_L\'URL_QUE_VOUS_AVEZ_COPIER_SUR_MON_REPOSITORY
 cd contact-pro-manager
 ```
 
-_contact-pro-manager_ étant le nom du répertoire qui aura été créer.
+_contact-pro-manager_ étant le nom du répertoire qui aura été créer lors du clonage du repository.
 
 ● Lancer l'installation des paquets
 
@@ -62,11 +62,11 @@ MONGODB_PASSWORD= // votre mot de passe personnel
 MONGODB_CLIENT_NAME= // le_nom_après_le_arobase.quelque_chose_d'aléatoire
 MONGODB_DATABASE_NAME= // titre de la database séparer par des underscore ( _ )
 
-// Ci-dessous, cette variable est utilisé dans le modèle pour définir la collection qui sera utilsié.
-MONGODB_COLLECTION_NAME= // nom de la collection IMPERATIVEMENT EN MINUSCULE ET AVEC UN S A LA FIN (il sera ajouté par défaut avec mongodb donc autant le mettre).
+// Ci-dessous, cette variable est utilisé dans le modèle pour définir la collection qui sera utilisé.
+MONGODB_COLLECTION_NAME= // nom de la collection IMPÉRATIVEMENT EN MINUSCULE ET AVEC UN S A LA FIN (il sera ajouté par défaut avec mongodb donc autant le mettre).
 ```
 
-● On devrait pouvoir lancer le server si tout à bien été respecter
+● On devrait pouvoir lancer le server si tout à bien été respecté
 
 ```sh
 # Pour lancer le server
@@ -80,14 +80,14 @@ Pourquoi ne pas faire un **`npm update`** ?
 > Si par manque de chance un module était mal configurer dans le package.json au niveau de la selection des versions,
 > alors l'update viendrait à casser totalement le code.
 
-prenom un exemple avec **Boxen**.
+prenons un exemple avec la dépendance **Boxen** qui est à télécharger.
 
 ```js
 // Boxen avec CommonJS
-const boxen = require("boxen"); // V5.1.2 Dernière version
+const boxen = require("boxen"); // V5.1.2 Dernière version prenant en charge CommonJS
 
 // Boxen avec les modules pris en charge
-import boxen from boxen; // V7 actuellement
+import boxen from boxen; // V7.x.x actuellement
 ```
 
 **Pour utiliser une version avec commonJS, il faut installer la dernière version qui prenait en compte commonJS soit:**
@@ -100,4 +100,4 @@ npm i boxen@5.1.2
 npm i boxen
 ```
 
-**_Donc l'update comme je l'ai dis peut-être vachement dangereux si il n'est pas maitrisé_**.
+**_Donc l'update comme je l'ai dis peut-être vachement dangereux si il n'est pas maîtrisé_**.
