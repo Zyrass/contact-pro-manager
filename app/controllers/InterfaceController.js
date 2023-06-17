@@ -14,7 +14,7 @@ const { checkValidate } = require("../../services/FormValidate");
 
 /**
  * =======================================================================
- * Redirection si l'url ne correspon pas
+ * Redirection si l'url ne correspond pas
  * =======================================================================
  */
 const getRedirect = (req, res) => {
